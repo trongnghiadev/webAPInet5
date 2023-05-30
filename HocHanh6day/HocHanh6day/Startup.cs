@@ -39,6 +39,7 @@ namespace HocHanh6day
 
             //     services.AddScoped<ILoaiRepository, LoaiRepository>();
             services.AddScoped<ILoaiRepository, LoaiRepositoryInMemory>();
+            services.AddScoped<IHangHoaRepository, HangHoaRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HocHanh6day", Version = "v1" });
