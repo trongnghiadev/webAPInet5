@@ -21,8 +21,16 @@ namespace HocHanh6day.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var dsloai = _context.Loais.ToList();
-            return Ok(dsloai);
+            try
+            {
+                var dsloai = _context.Loais.ToList();
+                return Ok(dsloai);
+            } catch
+            {
+                return BadRequest();
+            }
+           
+            
         }
 
         [HttpGet("{id}")]
@@ -47,7 +55,7 @@ namespace HocHanh6day.Controllers
                 };
                 _context.Add(loai);
                 _context.SaveChanges();
-                return Ok(loai);
+                return StatusCode(StatusCodes.Status201Created, loai);
             }
             catch
             {
@@ -70,6 +78,23 @@ namespace HocHanh6day.Controllers
                 return Ok();
             }
             
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Deledebyid(int id)
+        {
+            var loai = _context.Loais.SingleOrDefault(loai => loai.MaLoai == id);
+            if (loai == null)
+            {
+                return NotFound();
+            } else
+            {
+                _context.Remove(loai);
+                _context.SaveChanges();
+                return StatusCode(StatusCodes.Status200OK);
+            }
+       
+
         }
 
 
