@@ -1,4 +1,5 @@
 using HocHanh6day.Data;
+using HocHanh6day.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,10 +31,14 @@ namespace HocHanh6day
         {
 
             services.AddControllers();
+            services.AddAuthentication();
             services.AddDbContext<MyDbContext>(option =>
             {
                 option.UseSqlServer(Configuration.GetConnectionString("MyDB"));
             });
+
+            //     services.AddScoped<ILoaiRepository, LoaiRepository>();
+            services.AddScoped<ILoaiRepository, LoaiRepositoryInMemory>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HocHanh6day", Version = "v1" });
