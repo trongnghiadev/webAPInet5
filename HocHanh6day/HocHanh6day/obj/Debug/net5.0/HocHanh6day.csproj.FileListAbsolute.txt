@@ -53,7 +53,6 @@ D:\HocHanh\BACKEND\NET5\HocHanh6day\HocHanh6day\bin\Debug\net5.0\Microsoft.Ident
 D:\HocHanh\BACKEND\NET5\HocHanh6day\HocHanh6day\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\HocHanh\BACKEND\NET5\HocHanh6day\HocHanh6day\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 D:\HocHanh\BACKEND\NET5\HocHanh6day\HocHanh6day\bin\Debug\net5.0\Microsoft.OpenApi.dll
-D:\HocHanh\BACKEND\NET5\HocHanh6day\HocHanh6day\bin\Debug\net5.0\Newtonsoft.Json.dll
 D:\HocHanh\BACKEND\NET5\HocHanh6day\HocHanh6day\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\HocHanh\BACKEND\NET5\HocHanh6day\HocHanh6day\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\HocHanh\BACKEND\NET5\HocHanh6day\HocHanh6day\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -94,3 +93,4 @@ D:\HocHanh\BACKEND\NET5\HocHanh6day\HocHanh6day\obj\Debug\net5.0\refint\HocHanh6
 D:\HocHanh\BACKEND\NET5\HocHanh6day\HocHanh6day\obj\Debug\net5.0\HocHanh6day.pdb
 D:\HocHanh\BACKEND\NET5\HocHanh6day\HocHanh6day\obj\Debug\net5.0\HocHanh6day.genruntimeconfig.cache
 D:\HocHanh\BACKEND\NET5\HocHanh6day\HocHanh6day\obj\Debug\net5.0\ref\HocHanh6day.dll
+D:\HocHanh\BACKEND\NET5\HocHanh6day\HocHanh6day\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

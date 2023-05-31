@@ -1,5 +1,6 @@
 ﻿using HocHanh6day.Data;
 using HocHanh6day.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -45,6 +46,7 @@ namespace HocHanh6day.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult CreateNew(LoaiMD model)
         {
             try

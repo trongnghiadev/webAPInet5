@@ -1,5 +1,7 @@
 using HocHanh6day.Data;
+using HocHanh6day.Models;
 using HocHanh6day.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -9,10 +11,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace HocHanh6day
@@ -40,6 +44,25 @@ namespace HocHanh6day
             //     services.AddScoped<ILoaiRepository, LoaiRepository>();
             services.AddScoped<ILoaiRepository, LoaiRepositoryInMemory>();
             services.AddScoped<IHangHoaRepository, HangHoaRepository>();
+            services.Configure<AppSetting>(Configuration.GetSection("AppSettings"));
+
+            var SecretKey = Configuration["AppSettings:SecretKey"];
+            var secretKeyBytes = Encoding.UTF8.GetBytes(SecretKey);
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+            {
+                opt.TokenValidationParameters = new TokenValidationParameters
+                {
+                    // tu cap token
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+
+                    //ky vao token
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(secretKeyBytes),
+                    ClockSkew = TimeSpan.Zero
+
+                };
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HocHanh6day", Version = "v1" });
@@ -59,6 +82,8 @@ namespace HocHanh6day
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

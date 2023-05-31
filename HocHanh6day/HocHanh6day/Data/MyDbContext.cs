@@ -16,6 +16,8 @@ namespace HocHanh6day.Data
 
         public DbSet<DonHangChiTiet> DonHangChiTiets { get; set; }
 
+        public DbSet<NguoiDung> nguoiDungs { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -46,6 +48,13 @@ namespace HocHanh6day.Data
                     .HasForeignKey(e => e.MaHh)
                     .HasConstraintName("FK_DonHangChiTiet_HangHoa");
 
+            });
+
+            modelBuilder.Entity<NguoiDung>(e =>
+            {
+                e.HasIndex(e => e.UserName).IsUnique();
+                e.Property(e => e.HoTen).IsRequired().HasMaxLength(150);
+                e.Property(e => e.Email).IsRequired().HasMaxLength(150);
             });
         }
     }
