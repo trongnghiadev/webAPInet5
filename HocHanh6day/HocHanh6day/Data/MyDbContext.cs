@@ -17,6 +17,7 @@ namespace HocHanh6day.Data
         public DbSet<DonHangChiTiet> DonHangChiTiets { get; set; }
 
         public DbSet<NguoiDung> nguoiDungs { get; set; }
+        public DbSet<RefreshToken> refreshTokens { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
